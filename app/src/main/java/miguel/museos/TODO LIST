@@ -1,0 +1,6 @@
+crear un pop up cuando se le da click a un museo y que este muestre la informacion del museo
+agregar un boton que despliegue un pop-up que permita escannear un codigo qr
+cambiar el color de la imagen del pasaporte cuando se escannea un codigo qr correspondiente a un museo
+agregar reconocimiento de gestos para cambiar de pestaña
+agregar las imagenes de los museos a la carpeta drawable
+implementar un servicio para recepcion de objetos por JSON
