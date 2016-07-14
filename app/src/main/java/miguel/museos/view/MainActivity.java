@@ -22,7 +22,7 @@ import miguel.museos.view.middleFragments.MiddlePassportFragment;
 
 public class MainActivity extends AppCompatActivity implements TopFragment.OnFragmentInteractionListener,
         MiddlePassportFragment.OnFragmentInteractionListener, MiddleNewsFragment.OnFragmentInteractionListener,
-        MiddleMuseumsFragment.OnFragmentInteractionListener
+        MiddleMuseumsFragment.OnFragmentInteractionListener, MiddleMuseumViewFragment.OnFragmentInteractionListener
 {
 
 
@@ -96,6 +96,11 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
         getSupportFragmentManager().beginTransaction().add(R.id.middleFragmentLayout,museumView).commit();
 
 
+    }
+
+    @Override
+    public void closeMuseumVIew() {
+        changeTab(Enum_tabs.MUSEUMS);
     }
 
     @Override
