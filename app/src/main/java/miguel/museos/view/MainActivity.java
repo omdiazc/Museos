@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
                 layout = (FrameLayout) findViewById(R.id.middleFragmentLayout);
                 layout.removeAllViewsInLayout();
+
+
                 museums= new MiddleMuseumsFragment();
                 getSupportFragmentManager().beginTransaction().add(R.id.middleFragmentLayout,museums).commit();
 
