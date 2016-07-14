@@ -1,6 +1,9 @@
 package miguel.museos.data;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import miguel.museos.view.MainActivity;
 
 /**
  * Created by miguel on 11/07/16.
@@ -16,11 +19,12 @@ public class Museum implements Comparable<Museum>{
     private String latitude;
     private String schedule;
     private Bitmap image;
+    private Bitmap passportImage;
+    private int id;
 
 
 
-
-    public Museum(String name, String telephone, String longitude, String latitude, String address1, String description, String schedule) {
+    public Museum(String name, String telephone, String longitude, String latitude, String address1, String description, String schedule,int id,int passportID) {
         this.name = name;
         this.telephone = telephone;
         this.address = address1;
@@ -28,12 +32,14 @@ public class Museum implements Comparable<Museum>{
         this.latitude=latitude;
         this.longitude=longitude;
         this.schedule = schedule;
+        this.id=id;
+
+        image=BitmapFactory.decodeResource(MainActivity.getInstance().getResources(),id);
+        passportImage=BitmapFactory.decodeResource(MainActivity.getInstance().getResources(),passportID);
+
 
     }
 
-    public void setImage(Bitmap image) {
-        this.image = image;
-    }
 
     public String getSchedule() {
         return schedule;
@@ -59,13 +65,18 @@ public class Museum implements Comparable<Museum>{
         return description;
     }
 
-
-
+    public Bitmap getPassportImage() {
+        return passportImage;
+    }
 
     @Override
     public int compareTo(Museum another) {
 
         return name.compareTo(another.getName());
 
+    }
+
+    public int getid() {
+        return id;
     }
 }

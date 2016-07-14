@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -39,6 +40,10 @@ public class Museum_adapter extends ArrayAdapter<Museum> {
 
         name.setText(museumList.get(position).getName());
 
+        imageView = (ImageView) item.findViewById(R.id.imageView_image);
+//        imageView.setImageBitmap(        Bitmap.createScaledBitmap(BitmapFactory.
+//                decodeResource(item.getContext().getResources(), museumList.get(position).getid()),250,250,false));
+        imageView.setImageBitmap(museumList.get(position).getImage());
 
         return item;
     }
@@ -52,7 +57,7 @@ public class Museum_adapter extends ArrayAdapter<Museum> {
         Log.d("console_MuseumAdapter", c);
     }
 
-
+    ImageView imageView;
     TextView name;
     Context context;
     ArrayList<Museum> museumList;

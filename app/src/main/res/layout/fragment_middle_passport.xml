@@ -11,7 +11,8 @@
         android:id="@+id/listView_passport"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/button_scanner" />
+        android:layout_above="@+id/button_scanner"
+        tools:listitem="@android:layout/simple_list_item_1" />
 
     <Button
         android:layout_width="fill_parent"

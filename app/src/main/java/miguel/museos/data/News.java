@@ -1,20 +1,33 @@
 package miguel.museos.data;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import miguel.museos.view.MainActivity;
+
 /**
  * Created by miguel on 12/07/16.
  */
 public class News implements Comparable<News>{
+    private Bitmap image;
     private Museum museum;
     String summary,notice;
     int day, month, year;
 
-    public News(Museum museum, String summary, String notice, int day, int month, int year) {
+    public News(Museum museum, String summary, String notice, int day, int month, int year, int id) {
         this.museum = museum;
         this.summary = summary;
         this.notice = notice;
         this.day = day;
         this.month = month;
         this.year = year;
+        image= BitmapFactory.decodeResource(MainActivity.getInstance().getResources(),id);
+
+    }
+
+
+    public Bitmap getImage() {
+        return image;
     }
 
     public Museum getMuseum() {

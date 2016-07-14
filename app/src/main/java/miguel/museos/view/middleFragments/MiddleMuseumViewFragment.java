@@ -1,5 +1,6 @@
 package miguel.museos.view.middleFragments;
 
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +13,6 @@ import android.widget.TextView;
 
 import miguel.museos.R;
 import miguel.museos.data.Museum;
-import miguel.museos.view.MainActivity;
 
 
 /**
@@ -50,8 +50,7 @@ public class MiddleMuseumViewFragment extends Fragment {
             }
         });
 
-        MainActivity mainActivity= MainActivity.getInstance();
-        imageView.setImageDrawable(mainActivity.getimage(R.drawable.mnacional));
+        imageView.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), museum.getid()));
 
         return view;
 

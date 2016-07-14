@@ -6,7 +6,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_image"
         android:src="@mipmap/ic_launcher"
         android:layout_marginLeft="0dp"
         android:layout_alignParentTop="true"
@@ -18,8 +18,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textView_name"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_below="@+id/imageView_image"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:text="New Text"
         android:id="@+id/textView_schedule"
         android:layout_below="@+id/textView_name"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_toEndOf="@+id/textView_name" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,8 +35,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textView_description"
-        android:layout_below="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView_schedule" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,8 +44,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/textView_address"
-        android:layout_below="@+id/textView_description"
-        android:layout_alignStart="@+id/textView_description" />
+        android:layout_below="@+id/imageView_image"
+        android:layout_alignStart="@+id/textView_schedule"
+        android:layout_marginTop="59dp" />
 
     <TextView
         android:layout_width="wrap_content"

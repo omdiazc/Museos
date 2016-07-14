@@ -40,7 +40,8 @@ public class Passport_adapter extends ArrayAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         View item = inflater.inflate(R.layout.item_passport_adapter, null);
 
-        ImageView image = (ImageView) item.findViewById(R.id.imageView_image);
+        image = (ImageView) item.findViewById(R.id.imageView_image);
+        image.setImageBitmap(passportList.get(position).getMuseum().getPassportImage());
         name = (TextView) item.findViewById(R.id.textView_name);
         name.setText(passportList.get(position).getMuseum().getName());
         name.setTextColor(Color.BLACK);
@@ -56,5 +57,6 @@ public class Passport_adapter extends ArrayAdapter {
         return  item;
     }
 
-    TextView name;
+    private ImageView image;
+    private TextView name;
 }
