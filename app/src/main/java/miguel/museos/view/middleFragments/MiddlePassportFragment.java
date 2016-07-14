@@ -9,12 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
-
 
 import miguel.museos.R;
 import miguel.museos.view.MainActivity;
-import miguel.museos.view.adapters.News_adapter;
 import miguel.museos.view.adapters.Passport_adapter;
 
 public class MiddlePassportFragment extends Fragment {
@@ -44,6 +43,13 @@ public class MiddlePassportFragment extends Fragment {
 //                TODO IMPLEMENTAR EL CLICK
             }
         });
+        scanner = (Button) view.findViewById(R.id.button_scanner);
+        scanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.openScanner();
+            }
+        });
 
         return view;
     }
@@ -69,9 +75,12 @@ public class MiddlePassportFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
+        public void openScanner();
+
         public void onFragmentInteraction(Uri uri);
     }
 
+    private Button scanner;
     private MainActivity mainActivity;
     private ListView listView;
     private ArrayAdapter itemAdapter;

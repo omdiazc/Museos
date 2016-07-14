@@ -10,5 +10,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/listView_passport"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/button_scanner" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Scanner"
+        android:id="@+id/button_scanner"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

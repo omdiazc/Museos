@@ -1,5 +1,6 @@
 package miguel.museos.view;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,7 +23,9 @@ import miguel.museos.view.middleFragments.MiddlePassportFragment;
 
 public class MainActivity extends AppCompatActivity implements TopFragment.OnFragmentInteractionListener,
         MiddlePassportFragment.OnFragmentInteractionListener, MiddleNewsFragment.OnFragmentInteractionListener,
-        MiddleMuseumsFragment.OnFragmentInteractionListener, MiddleMuseumViewFragment.OnFragmentInteractionListener
+        MiddleMuseumsFragment.OnFragmentInteractionListener, MiddleMuseumViewFragment.OnFragmentInteractionListener,
+        ButtomFragment.OnFragmentInteractionListener
+
 {
 
 
@@ -58,9 +61,14 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
     public void changeTab(Enum_tabs tab) {
         switch (tab) {
             case NEWS:
-                news = new MiddleNewsFragment();
+
+
                 layout = (FrameLayout) findViewById(R.id.middleFragmentLayout);
                 layout.removeAllViewsInLayout();
+
+
+                news = new MiddleNewsFragment();
+
 
                 getSupportFragmentManager().beginTransaction().add(R.id.middleFragmentLayout,news).commit();
                 break;
@@ -68,6 +76,9 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
                 layout = (FrameLayout) findViewById(R.id.middleFragmentLayout);
                 layout.removeAllViewsInLayout();
+
+
+
                 museums= new MiddleMuseumsFragment();
                 getSupportFragmentManager().beginTransaction().add(R.id.middleFragmentLayout,museums).commit();
 
@@ -76,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
                 layout = (FrameLayout) findViewById(R.id.middleFragmentLayout);
                 layout.removeAllViewsInLayout();
-                    passport = new MiddlePassportFragment();
+
+                passport = new MiddlePassportFragment();
+
 //                getSupportFragmentManager().beginTransaction().hide(news);
                 getSupportFragmentManager().beginTransaction().replace(R.id.middleFragmentLayout,passport).commit();
 
@@ -101,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
     @Override
     public void closeMuseumVIew() {
         changeTab(Enum_tabs.MUSEUMS);
+    }
+
+    @Override
+    public void openScanner() {
+        startActivity(new Intent(MainActivity.this, QrActivity.class));
     }
 
     @Override

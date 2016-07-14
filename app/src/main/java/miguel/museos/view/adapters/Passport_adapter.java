@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 import miguel.museos.R;
-import miguel.museos.data.News;
 import miguel.museos.data.Passport;
 
 /**
@@ -25,7 +25,10 @@ public class Passport_adapter extends ArrayAdapter {
         super(context, R.layout.item_passport_adapter, newsList);
         this.newsList = newsList;
         this.context = context;
+
     }
+
+
 
 
     @Override
@@ -41,4 +44,6 @@ public class Passport_adapter extends ArrayAdapter {
 
         return  item;
     }
+
+    Button scanner;
 }
