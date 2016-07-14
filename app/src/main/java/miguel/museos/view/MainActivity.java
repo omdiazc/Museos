@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
         ourInstance= this;
         data = Data.getInstance();
 
-
         topFragment = new TopFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.topframeLayout,topFragment).commit();
         changeTab(Enum_tabs.NEWS);
@@ -61,11 +60,8 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
     public void changeTab(Enum_tabs tab) {
         switch (tab) {
             case NEWS:
-
-
                 layout = (FrameLayout) findViewById(R.id.middleFragmentLayout);
                 layout.removeAllViewsInLayout();
-
 
                 news = new MiddleNewsFragment();
 
@@ -87,10 +83,8 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
                 layout = (FrameLayout) findViewById(R.id.middleFragmentLayout);
                 layout.removeAllViewsInLayout();
-
                 passport = new MiddlePassportFragment();
 
-//                getSupportFragmentManager().beginTransaction().hide(news);
                 getSupportFragmentManager().beginTransaction().replace(R.id.middleFragmentLayout,passport).commit();
 
                 break;
@@ -116,9 +110,10 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
         changeTab(Enum_tabs.MUSEUMS);
     }
 
-    @Override
+//    @Override
     public void openScanner() {
-        startActivity(new Intent(MainActivity.this, QrActivity.class));
+        startActivityForResult(new Intent(MainActivity.this, QrActivity.class), 12);
+
     }
 
     @Override
@@ -130,17 +125,21 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
         Log.d("console_MainActivity", c);
     }
 
+
+    public ArrayList<News> getNewsList() {
+        return data.getNewsList();
+    }
+
+    public ArrayList<Passport> getPassportList() {
+        return data.getPassportList();
+    }
+
+
+
     private FrameLayout layout;
     private TopFragment topFragment;
     private Fragment news=null,museums=null,passport=null;
     MiddleMuseumViewFragment museumView;
     private static Data data;
 
-
-    public ArrayList<News> getNewsList() {
-        return data.getNewsList();
-    }
-    public ArrayList<Passport> getPassportList() {
-        return data.getPassportList();
-    }
 }

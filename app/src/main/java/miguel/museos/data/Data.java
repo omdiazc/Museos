@@ -28,16 +28,16 @@ public class Data {
         museumList = new ArrayList<>();
         newsList = new ArrayList<>();
         passportList= new ArrayList<>();
-        museumList.add(new Museum("1", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("2", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("3", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("4", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("5", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("6", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("7", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("8", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("9", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
-        museumList.add(new Museum("10", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Museo Nacional", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Museo del Oro", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Planetario de Bogota", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Museo de Arte moderno", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Casa museo Gaitan", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Museo de historia natural UN", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Museo de la ciencia y el juego UN", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Museo de arquitectura UN", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Casa de la Moneda de Colombia", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
+        museumList.add(new Museum("Museo Historico de la Policia Nacional", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
         museumList.add(new Museum("11", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
         museumList.add(new Museum("12", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
         museumList.add(new Museum("13", "33333333", "longitude", "latitude", "address1", "address2", "address3", "descripcion"));
@@ -178,15 +178,24 @@ public class Data {
     private ArrayList<News> newsList;
     private ArrayList<Passport> passportList;
 
-    public void checkMuseum(String text) {
+    public int checkMuseum(String text) {
+
+
         for(int i =0; i<passportList.size();i++){
-            if(text==passportList.get(i).getMuseum().getName()){
+            if(text.compareTo(passportList.get(i).getMuseum().getName())==0){
                 if(!passportList.get(i).getCheck()){
                     passportList.get(i).setCheck(true);
-                    break;
+
+                    return  0;
+
                 }
+                else {
+                    return 1;
+                }
+
             }
         }
 
+        return -1;
     }
 }

@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabHost;
 
-
 import miguel.museos.R;
 import miguel.museos.enums.Enum_tabs;
 
@@ -91,6 +90,9 @@ public class TopFragment extends Fragment {
         public void onFragmentInteraction(Uri uri);
     }
 
+    public Enum_tabs getTab() {
+        return tab;
+    }
 
     private static void comunication(String c) {
         Log.d("console_TopFragment", c);

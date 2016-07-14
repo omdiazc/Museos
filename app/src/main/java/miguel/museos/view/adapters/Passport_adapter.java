@@ -1,11 +1,13 @@
 package miguel.museos.view.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,14 +21,15 @@ public class Passport_adapter extends ArrayAdapter {
 
 
     private Context context;
-    private ArrayList<Passport> newsList;
+    private ArrayList<Passport> passportList;
 
-    public Passport_adapter(Context context, ArrayList<Passport> newsList) {
-        super(context, R.layout.item_passport_adapter, newsList);
-        this.newsList = newsList;
+    public Passport_adapter(Context context, ArrayList<Passport> passportList) {
+        super(context, R.layout.item_passport_adapter, passportList);
+        this.passportList = passportList;
         this.context = context;
 
     }
+
 
 
 
@@ -37,6 +40,17 @@ public class Passport_adapter extends ArrayAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         View item = inflater.inflate(R.layout.item_passport_adapter, null);
 
+        ImageView image = (ImageView) item.findViewById(R.id.imageView_image);
+        name = (TextView) item.findViewById(R.id.textView_name);
+        name.setText(passportList.get(position).getMuseum().getName());
+        name.setTextColor(Color.BLACK);
+
+        if(!passportList.get(position).getCheck()){
+            name.setTextColor(Color.GRAY);
+            image.setAlpha(127);
+
+        }
+
 
 
 
@@ -45,5 +59,5 @@ public class Passport_adapter extends ArrayAdapter {
         return  item;
     }
 
-    Button scanner;
+    TextView name;
 }
