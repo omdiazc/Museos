@@ -1,10 +1,8 @@
 package miguel.museos.view;
 
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -12,8 +10,7 @@ import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import miguel.museos.R;
-
-import static android.support.v7.app.AlertDialog.Builder;
+import miguel.museos.data.Data;
 
 public class QrActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
 
@@ -22,6 +19,7 @@ public class QrActivity extends AppCompatActivity implements ZXingScannerView.Re
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr);
+        data = Data.getInstance();
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -53,16 +51,9 @@ public class QrActivity extends AppCompatActivity implements ZXingScannerView.Re
 
     @Override
     public void handleResult(Result rawResult) {
-
-        Log.e("handler", rawResult.getText()); // Prints scan results
-        Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)
-
-        // show the scanner result into dialog box.
-        Builder builder = new Builder(this);
-        builder.setTitle("Scan Result");
-        builder.setMessage(rawResult.getText());
-        AlertDialog alert1 = builder.create();
-        alert1.show();
+        data.checkMuseum(rawResult.getText());
 
    }
+
+    Data data;
 }

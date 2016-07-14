@@ -10,7 +10,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -178,4 +177,16 @@ public class Data {
     private ArrayList<Museum> museumList;
     private ArrayList<News> newsList;
     private ArrayList<Passport> passportList;
+
+    public void checkMuseum(String text) {
+        for(int i =0; i<passportList.size();i++){
+            if(text==passportList.get(i).getMuseum().getName()){
+                if(!passportList.get(i).getCheck()){
+                    passportList.get(i).setCheck(true);
+                    break;
+                }
+            }
+        }
+
+    }
 }
