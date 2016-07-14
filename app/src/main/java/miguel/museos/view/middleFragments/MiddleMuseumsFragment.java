@@ -53,10 +53,7 @@ public class MiddleMuseumsFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                comunication(String.valueOf(position));
-
-                mListener.onMuseumCLick((Museum) listView.getSelectedItem());
-//                TODO IMPLEMENTAR EL CLICK
+                mListener.onMuseumCLick((Museum) itemAdapter.getItem(position));
             }
         });
 
