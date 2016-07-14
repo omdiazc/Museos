@@ -1,7 +1,6 @@
 package miguel.museos.view.middleFragments;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +14,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import miguel.museos.R;
+import miguel.museos.data.Museum;
 import miguel.museos.view.MainActivity;
 import miguel.museos.view.adapters.Museum_adapter;
 
@@ -54,6 +54,8 @@ public class MiddleMuseumsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                comunication(String.valueOf(position));
+
+                mListener.onMuseumCLick((Museum) listView.getSelectedItem());
 //                TODO IMPLEMENTAR EL CLICK
             }
         });
@@ -94,6 +96,11 @@ public class MiddleMuseumsFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
+
+
+        public void onMuseumCLick(Museum item);
+
+
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }

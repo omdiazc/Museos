@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import miguel.museos.R;
 import miguel.museos.data.Museum;
@@ -17,7 +16,7 @@ import miguel.museos.data.Museum;
 /**
  * Created by miguel on 12/07/16.
  */
-public class Museum_adapter extends ArrayAdapter {
+public class Museum_adapter extends ArrayAdapter<Museum> {
 
 
     public Museum_adapter(Context context, ArrayList<Museum> museumList) {
@@ -43,6 +42,12 @@ public class Museum_adapter extends ArrayAdapter {
 
         return item;
     }
+
+    @Override
+    public Museum getItem(int position) {
+        return museumList.get(position);
+    }
+
     private static void comunication(String c) {
         Log.d("console_MuseumAdapter", c);
     }

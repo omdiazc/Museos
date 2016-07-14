@@ -1,16 +1,11 @@
 package miguel.museos.view;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-
-import android.support.v4.app.FragmentContainer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
@@ -90,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
                 break;
         }
+    }
+
+    @Override
+    public void onMuseumCLick(Museum item) {
+        comunication(item.getName());
     }
 
     @Override
