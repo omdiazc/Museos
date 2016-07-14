@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import miguel.museos.R;
 import miguel.museos.data.Museum;
@@ -23,9 +25,27 @@ public class MiddleMuseumViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View view =inflater.inflate(R.layout.fragment_museum_view, container , false);
+        view = inflater.inflate(R.layout.fragment_museum_view, container, false);
+        name = (TextView) view.findViewById(R.id.textView_name);
+        address = (TextView) view.findViewById(R.id.textView_address);
+        description = (TextView) view.findViewById(R.id.textView_description);
+        telephone = (TextView) view.findViewById(R.id.textView_telephone);
+        schedule = (TextView) view.findViewById(R.id.textView_schedule);
 
+        back = (Button) view.findViewById(R.id.button_back);
 
+        name.setText(museum.getName());
+        address.setText(museum.getAddress1());
+        description.setText(museum.getDescription());
+        telephone.setText(museum.getTelephone());
+        schedule.setText(museum.getSchedule());
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.closeMuseumVIew();
+            }
+        });
 
         return view;
 
@@ -49,8 +69,9 @@ public class MiddleMuseumViewFragment extends Fragment {
         mListener = null;
     }
 
-
-
+    private Button back;
+    private TextView name, address, description, telephone, schedule;
+    private View view;
     private Museum museum;
 
 

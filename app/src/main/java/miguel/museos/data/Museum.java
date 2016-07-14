@@ -1,71 +1,66 @@
 package miguel.museos.data;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by miguel on 11/07/16.
  */
 public class Museum implements Comparable<Museum>{
 
     private String name;
-    private String id;
     private String telephone;
+
+    private String address;
+    private String description;
     private String longitude;
     private String latitude;
-    private String address1;
-    private String address2;
-    private String address3;
-    private String description;
+    private String schedule;
+    private Bitmap image;
 
 
-    public Museum(String name, String telephone, String longitude, String latitude, String address1, String address2, String address3, String description) {
+
+
+    public Museum(String name, String telephone, String longitude, String latitude, String address1, String description, String schedule) {
         this.name = name;
         this.telephone = telephone;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.address1 = address1;
-        this.address2 = address2;
-        this.address3 = address3;
+        this.address = address1;
         this.description = description;
+        this.latitude=latitude;
+        this.longitude=longitude;
+        this.schedule = schedule;
+
+    }
+
+    public void setImage(Bitmap image) {
+        this.image = image;
+    }
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public Bitmap getImage() {
+        return image;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public String getTelephone() {
         return telephone;
     }
 
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
     public String getAddress1() {
-        return address1;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public String getAddress3() {
-        return address3;
+        return address;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+
+
 
     @Override
     public int compareTo(Museum another) {

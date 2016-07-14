@@ -53,9 +53,6 @@ public class Passport_adapter extends ArrayAdapter {
 
 
 
-
-
-
         return  item;
     }
 
