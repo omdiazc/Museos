@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import miguel.museos.R;
 import miguel.museos.data.Museum;
+import miguel.museos.view.MainActivity;
 
 
 /**
@@ -31,6 +33,7 @@ public class MiddleMuseumViewFragment extends Fragment {
         description = (TextView) view.findViewById(R.id.textView_description);
         telephone = (TextView) view.findViewById(R.id.textView_telephone);
         schedule = (TextView) view.findViewById(R.id.textView_schedule);
+        imageView= (ImageView) view.findViewById(R.id.imageView_image);
 
         back = (Button) view.findViewById(R.id.button_back);
 
@@ -46,6 +49,9 @@ public class MiddleMuseumViewFragment extends Fragment {
                 mListener.closeMuseumVIew();
             }
         });
+
+        MainActivity mainActivity= MainActivity.getInstance();
+        imageView.setImageDrawable(mainActivity.getimage(R.drawable.mnacional));
 
         return view;
 
@@ -69,6 +75,7 @@ public class MiddleMuseumViewFragment extends Fragment {
         mListener = null;
     }
 
+    private ImageView imageView;
     private Button back;
     private TextView name, address, description, telephone, schedule;
     private View view;

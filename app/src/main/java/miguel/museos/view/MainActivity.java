@@ -1,6 +1,6 @@
 package miguel.museos.view;
 
-import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
 
     public ArrayList<Museum> getMuseumList(){
+
         return  data.getMuseumList();
     }
 
@@ -110,9 +111,8 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
         changeTab(Enum_tabs.MUSEUMS);
     }
 
-//    @Override
-    public void openScanner() {
-        startActivityForResult(new Intent(MainActivity.this, QrActivity.class), 12);
+    public Drawable getimage(int resourse){
+        return getResources().getDrawable(resourse, this.getTheme());
 
     }
 
