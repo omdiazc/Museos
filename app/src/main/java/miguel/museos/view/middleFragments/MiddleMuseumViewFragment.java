@@ -28,6 +28,11 @@ public class MiddleMuseumViewFragment extends Fragment {
 
     }
 
+    public void setMuseum(Museum museum) {
+        this.museum = museum;
+    }
+
+
 
 
     private Museum museum;

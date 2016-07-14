@@ -15,6 +15,7 @@ import miguel.museos.data.Museum;
 import miguel.museos.data.News;
 import miguel.museos.data.Passport;
 import miguel.museos.enums.Enum_tabs;
+import miguel.museos.view.middleFragments.MiddleMuseumViewFragment;
 import miguel.museos.view.middleFragments.MiddleMuseumsFragment;
 import miguel.museos.view.middleFragments.MiddleNewsFragment;
 import miguel.museos.view.middleFragments.MiddlePassportFragment;
@@ -42,10 +43,6 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
         topFragment = new TopFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.topframeLayout,topFragment).commit();
         changeTab(Enum_tabs.NEWS);
-
-
-
-
 
 
     }
@@ -89,7 +86,16 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
     @Override
     public void onMuseumCLick(Museum item) {
-        comunication(item.getName());
+        museumView= new MiddleMuseumViewFragment();
+        museumView.setMuseum(item);
+
+        layout = (FrameLayout) findViewById(R.id.middleFragmentLayout);
+        layout.removeAllViewsInLayout();
+
+
+        getSupportFragmentManager().beginTransaction().add(R.id.middleFragmentLayout,museumView).commit();
+
+
     }
 
     @Override
@@ -104,15 +110,13 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
     private FrameLayout layout;
     private TopFragment topFragment;
     private Fragment news=null,museums=null,passport=null;
-    private Fragment middle;
+    MiddleMuseumViewFragment museumView;
     private static Data data;
 
 
     public ArrayList<News> getNewsList() {
         return data.getNewsList();
     }
-
-
     public ArrayList<Passport> getPassportList() {
         return data.getPassportList();
     }
