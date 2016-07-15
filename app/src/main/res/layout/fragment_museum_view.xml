@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/shadow_stack"
+            android:background="@drawable/backgroud"
 
             android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
@@ -40,11 +40,12 @@
                 android:layout_height="wrap_content"
 
                 android:text="Museo"
-                android:textColor="#000000"
+                android:textColor="#ffffff"
                 android:id="@+id/textView_name"
                 android:shadowDy="-3"
                 android:shadowDx="3"
                 android:textSize="20dp"
+
 
                 android:gravity="center"
                 android:layout_marginLeft="15dp"
@@ -62,14 +63,16 @@
 
                 android:text="Horario"
                 android:id="@+id/textView_schedule"
-                android:textSize="10dp"
+                android:textSize="11dp"
 
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:textColor="#ffffff"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,14 +89,16 @@
 
                     android:text="Telefono"
                     android:id="@+id/textView_telephone"
-                    android:textSize="10dp"
+                    android:textSize="11dp"
 
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#ffffff"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -102,14 +107,16 @@
 
                     android:text="Direccion"
                     android:id="@+id/textView_address"
-                    android:textSize="10dp"
+                    android:textSize="11dp"
 
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#ffffff"
+                    />
 
             </LinearLayout>
 

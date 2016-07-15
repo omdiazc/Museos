@@ -22,7 +22,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile project(':volley')
     compile files('libs/gson-2.2.4.jar')
     compile files('libs/gson-2.2.4-javadoc.jar')
     compile files('libs/gson-2.2.4-sources.jar')
