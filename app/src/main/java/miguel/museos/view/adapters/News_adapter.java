@@ -36,10 +36,12 @@ public class News_adapter extends ArrayAdapter {
 
         name = (TextView) item.findViewById(R.id.textView_name);
         summary= (TextView) item.findViewById(R.id.textView_summary);
+        notice = (TextView) item.findViewById(R.id.textView_notice);
         date= (TextView) item.findViewById(R.id.textView_date);
 
-        name.setText(newsList.get(position).getSummary());
-        summary.setText(newsList.get(position).getNotice());
+        name.setText(newsList.get(position).getMuseum().getName());
+        summary.setText(newsList.get(position).getSummary());
+        notice.setText(newsList.get(position).getNotice()) ;
         date.setText(newsList.get(position).getDate());
 
 
@@ -53,6 +55,6 @@ public class News_adapter extends ArrayAdapter {
         Log.d("console_Datat", c);
     }
 
-    TextView name,summary,date;
+    TextView name,summary,notice,date;
     ImageView image;
 }

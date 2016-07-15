@@ -10,7 +10,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="275dp"
             android:id="@+id/imageView_image"
             android:src="@drawable/lorem"
             android:maxHeight="250dp"
@@ -31,7 +31,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginBottom="10dp"
 
-            android:layout_below="@id/imageView_image"
+            android:layout_alignBottom="@id/imageView_image"
             android:layout_centerVertical="true"
             android:id="@+id/linearLayout_title">
 
