@@ -10,14 +10,4 @@
         android:id="@+id/museums_listView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
-    <SearchView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/museum_searchView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-
-        />
-
 </RelativeLayout>

@@ -38,8 +38,8 @@ public class News_adapter extends ArrayAdapter {
         summary= (TextView) item.findViewById(R.id.textView_summary);
         date= (TextView) item.findViewById(R.id.textView_date);
 
-        name.setText(newsList.get(position).getMuseum().getName());
-        summary.setText(newsList.get(position).getSummary());
+        name.setText(newsList.get(position).getSummary());
+        summary.setText(newsList.get(position).getNotice());
         date.setText(newsList.get(position).getDate());
 
 
