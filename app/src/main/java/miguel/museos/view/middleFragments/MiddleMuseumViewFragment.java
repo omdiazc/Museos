@@ -46,7 +46,6 @@ public class MiddleMuseumViewFragment extends Fragment  {
 
 
         imageView.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), museum.getid()));
-
         return view;
 
     }

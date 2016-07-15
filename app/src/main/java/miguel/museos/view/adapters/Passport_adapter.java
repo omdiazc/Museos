@@ -48,7 +48,7 @@ public class Passport_adapter extends ArrayAdapter {
 
         if(!passportList.get(position).getCheck()){
             name.setTextColor(Color.GRAY);
-            image.setAlpha(127);
+            image.setAlpha(64);
 
         }
 

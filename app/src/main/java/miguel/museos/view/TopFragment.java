@@ -1,6 +1,7 @@
 package miguel.museos.view;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabHost;
+import android.widget.TabWidget;
+import android.widget.TextView;
 
 import miguel.museos.R;
 import miguel.museos.enums.Enum_tabs;
@@ -21,12 +24,22 @@ public class TopFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_top, container, false);
+
         tabHost = (TabHost) view.findViewById(R.id.MainMenuBar_tabHost);
+
+
+
         tabHost.setup();
+
+
 
         for (Enum_tabs tab : Enum_tabs.values()) {
             addTab(tab);
         }
+
+
+
+
         return view;
     }
 
@@ -35,28 +48,22 @@ public class TopFragment extends Fragment {
         TabHost.TabSpec ts = tabHost.newTabSpec(name.toString());
         ts.setIndicator(name.toString(getContext()));
         ts.setContent(R.id.MainMenuBar_linearLayout);
+
+
         tabHost.addTab(ts);
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                comunication(tabHost.getCurrentTabTag());
+
                 mListener.changeTab(Enum_tabs.valueOf(tabHost.getCurrentTabTag()));
             }
         });
-//        tabHost.getTabWidget().getChildTabViewAt(count).setBackground(geticon(count));
-//        tabHost.getTabWidget().getChildTabViewAt(count).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(tab!=name){
-//                    tab= name;;
-//
-//
-//                    mListener.changeTab(tab);
-//                }
-//
-//            }
-//        });
+
+        TabWidget tw = (TabWidget)tabHost.findViewById(android.R.id.tabs);
+        View tabView = tw.getChildTabViewAt(count);
+        TextView tv = (TextView)tabView.findViewById(android.R.id.title);
+        tv.setTextColor(Color.WHITE);
         count++;
     }
 

@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="miguel.museal.view.TopFragment">
+    android:layout_height="match_parent" tools:context="miguel.museos.view.TopFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -9,7 +9,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/MainMenuBar_tabHost"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+
+
+        android:touchscreenBlocksFocus="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +23,9 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></TabWidget>
+                android:layout_height="wrap_content"
+
+                ></TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"

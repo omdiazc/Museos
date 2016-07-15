@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
         setContentView(R.layout.activity_main);
         ourInstance= this;
         data = Data.getInstance();
+        getSupportActionBar().hide();
 
         topFragment = new TopFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.topframeLayout,topFragment).commit();
