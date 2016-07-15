@@ -27,13 +27,13 @@ public class MiddleMuseumViewFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        view = inflater.inflate(R.layout.fragment_museum_view, container, false);
-        name = (TextView) view.findViewById(R.id.textView_name);
-        address = (TextView) view.findViewById(R.id.textView_address);
-        description = (TextView) view.findViewById(R.id.textView_description);
-        telephone = (TextView) view.findViewById(R.id.textView_telephone);
-        schedule = (TextView) view.findViewById(R.id.textView_schedule);
-        imageView= (ImageView) view.findViewById(R.id.imageView_image);
+        View view = inflater.inflate(R.layout.fragment_museum_view, container, false);
+        TextView name = (TextView) view.findViewById(R.id.textView_name);
+        TextView address = (TextView) view.findViewById(R.id.textView_address);
+        TextView description = (TextView) view.findViewById(R.id.textView_description);
+        TextView telephone = (TextView) view.findViewById(R.id.textView_telephone);
+        TextView schedule = (TextView) view.findViewById(R.id.textView_schedule);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView_image);
 
 
 
@@ -81,10 +81,6 @@ public class MiddleMuseumViewFragment extends Fragment  {
         mListener = null;
     }
 
-    private ImageView imageView;
-
-    private TextView name, address, description, telephone, schedule;
-    private View view;
     private Museum museum;
 
 
