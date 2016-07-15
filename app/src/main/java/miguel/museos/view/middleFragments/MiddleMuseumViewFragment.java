@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,7 +35,6 @@ public class MiddleMuseumViewFragment extends Fragment  {
         schedule = (TextView) view.findViewById(R.id.textView_schedule);
         imageView= (ImageView) view.findViewById(R.id.imageView_image);
 
-        back = (Button) view.findViewById(R.id.button_back);
 
 
         name.setText(museum.getName());
@@ -45,13 +43,7 @@ public class MiddleMuseumViewFragment extends Fragment  {
         telephone.setText(museum.getTelephone());
         schedule.setText(museum.getSchedule());
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             mListener.closeMuseumVIew();
 
-            }
-        });
 
         imageView.setImageBitmap(BitmapFactory.decodeResource(getContext().getResources(), museum.getid()));
 
@@ -90,7 +82,7 @@ public class MiddleMuseumViewFragment extends Fragment  {
     }
 
     private ImageView imageView;
-    private Button back;
+
     private TextView name, address, description, telephone, schedule;
     private View view;
     private Museum museum;
