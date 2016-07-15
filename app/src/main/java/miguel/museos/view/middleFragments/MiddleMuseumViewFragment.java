@@ -1,5 +1,6 @@
 package miguel.museos.view.middleFragments;
 
+import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import miguel.museos.data.Museum;
 /**
  * Created by miguel on 14/07/16.
  */
-public class MiddleMuseumViewFragment extends Fragment {
+public class MiddleMuseumViewFragment extends Fragment  {
 
     private OnFragmentInteractionListener mListener;
 
@@ -37,6 +38,7 @@ public class MiddleMuseumViewFragment extends Fragment {
 
         back = (Button) view.findViewById(R.id.button_back);
 
+
         name.setText(museum.getName());
         address.setText(museum.getAddress1());
         description.setText(museum.getDescription());
@@ -46,7 +48,8 @@ public class MiddleMuseumViewFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.closeMuseumVIew();
+             mListener.closeMuseumVIew();
+
             }
         });
 
@@ -60,12 +63,24 @@ public class MiddleMuseumViewFragment extends Fragment {
         this.museum = museum;
     }
 
+
     public interface OnFragmentInteractionListener {
 
         public void closeMuseumVIew();
 
 
         public void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override

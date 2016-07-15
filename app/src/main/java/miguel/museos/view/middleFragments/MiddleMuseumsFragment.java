@@ -1,8 +1,10 @@
 package miguel.museos.view.middleFragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +45,9 @@ public class MiddleMuseumsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_middle_museums_fragmetn, container, false);
 
+        vibrator= (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
+
         listView = (ListView) view.findViewById(R.id.museums_listView);
         listView.setSmoothScrollbarEnabled(true);
         mainActivity= MainActivity.getInstance();
@@ -54,6 +59,7 @@ public class MiddleMuseumsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mListener.onMuseumCLick((Museum) itemAdapter.getItem(position));
+                vibrator.vibrate(100);
             }
         });
 
@@ -110,5 +116,6 @@ public class MiddleMuseumsFragment extends Fragment {
     private MainActivity mainActivity;
     private ListView listView;
     private ArrayAdapter itemAdapter;
+    private Vibrator vibrator;
 
 }

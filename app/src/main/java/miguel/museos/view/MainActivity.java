@@ -1,6 +1,5 @@
 package miguel.museos.view;
 
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -103,17 +102,30 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
 
         getSupportFragmentManager().beginTransaction().add(R.id.middleFragmentLayout,museumView).commit();
 
+        onMuseum=true;
 
     }
 
     @Override
     public void closeMuseumVIew() {
+
         changeTab(Enum_tabs.MUSEUMS);
     }
 
-    public Drawable getimage(int resourse){
-        return getResources().getDrawable(resourse, this.getTheme());
 
+
+
+    @Override
+    public void onBackPressed()
+    {
+        if(onMuseum){
+            closeMuseumVIew();
+            onMuseum=false;
+        }
+        else{
+            moveTaskToBack(true);
+        }
+//
     }
 
     @Override
@@ -135,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements TopFragment.OnFra
     }
 
 
-
+    private boolean onMuseum=false;
     private FrameLayout layout;
     private TopFragment topFragment;
     private Fragment news=null,museums=null,passport=null;

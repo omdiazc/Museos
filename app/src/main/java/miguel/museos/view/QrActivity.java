@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -30,6 +31,9 @@ public class QrActivity extends AppCompatActivity implements ZXingScannerView.Re
         int width = dm.widthPixels;
         int heigth = dm.heightPixels;
         getWindow().setLayout((int)(width*0.9),(int)(heigth*0.8) );
+
+        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
         this.setFinishOnTouchOutside(true);
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.activity_qr, null);
@@ -55,6 +59,7 @@ public class QrActivity extends AppCompatActivity implements ZXingScannerView.Re
 
     @Override
     public void handleResult(Result rawResult) {
+        vibrator.vibrate(600);
         int i = data.checkMuseum(rawResult.getText());
         if(i==0){
 
@@ -101,5 +106,6 @@ public class QrActivity extends AppCompatActivity implements ZXingScannerView.Re
         super.finish();
     }
 
+    Vibrator vibrator ;
     Data data;
 }
